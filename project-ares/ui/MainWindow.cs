@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace project_ares
+namespace project_ares.ui
 {
     public partial class Form1 : Form
     {
@@ -41,6 +41,10 @@ namespace project_ares
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Cree un objeto de tipo DataSetManager
+            //Lea los datos
+
+
             openFileDialog1.ShowDialog();
 
             string content = File.ReadAllText(openFileDialog1.FileName);
