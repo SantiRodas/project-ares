@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
+using System.Globalization;
 
 namespace project_ares.model
 {
@@ -13,7 +14,7 @@ namespace project_ares.model
         private ArrayList[] data;
 
         public ArrayList[] Data{
-            get;set;
+            get { return data; }
         }
 
         public DataSetManager()
@@ -34,6 +35,11 @@ namespace project_ares.model
             if (!sr.EndOfStream)
             {
                 string[] line = sr.ReadLine().Split(',');
+                data[0].Add(line[0]);
+                data[1].Add(line[1]);
+                data[2].Add(line[2]);
+                data[3].Add(line[3]);
+                data[4].Add(line[4]);
 
                 while (!sr.EndOfStream)
                 {
@@ -41,8 +47,8 @@ namespace project_ares.model
                     data[0].Add(line[0]);
                     data[1].Add(line[1]);
                     data[2].Add(line[2]);
-                    data[3].Add(line[3]);
-                    data[4].Add(line[4]);
+                    data[3].Add(Double.Parse(line[3],CultureInfo.InvariantCulture));
+                    data[4].Add(Double.Parse(line[4], CultureInfo.InvariantCulture));
                 }
             }
 

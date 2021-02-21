@@ -12,6 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using project_ares.model;
+using System.Collections;
+using System.Globalization;
 
 namespace project_ares.ui
 {
@@ -23,7 +26,7 @@ namespace project_ares.ui
         // Attributes of the system
 
         private DataTable dt;
-
+        private DataSetManager dsM;
         GMapOverlay markers = new GMapOverlay("markers"); 
         GMapOverlay polygons = new GMapOverlay("polygons");
 
@@ -48,31 +51,34 @@ namespace project_ares.ui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Cree un objeto de tipo DataSetManager
-            //Lea los datos
-
-
             openFileDialog1.ShowDialog();
 
-            string content = File.ReadAllText(openFileDialog1.FileName);
+            dsM = new DataSetManager();
+            dsM.Load(openFileDialog1.FileName);
 
-            string[] splitContent = content.Split('\n');
+            ArrayList[] data = dsM.Data;
 
-            string[] splitLine = splitContent[0].Split(',');
+            dt.Columns.Add((string)data[0][0], typeof(string));
+            dt.Columns.Add((string)data[1][0], typeof(string));
+            dt.Columns.Add((string)data[2][0], typeof(string));
+            dt.Columns.Add((string)data[3][0], typeof(double));
+            dt.Columns.Add((string)data[4][0], typeof(double));
 
-            dt.Columns.Add(splitLine[0]);
-            dt.Columns.Add(splitLine[1]);
-            dt.Columns.Add(splitLine[2]);
-            dt.Columns.Add(splitLine[3]);
-            dt.Columns.Add(splitLine[4]);
+            
 
-            for (int i = 1; i < splitContent.Length; i++)
+            for (int i = 1; i < data[0].Count; i++)
             {
-                splitLine = splitContent[i].Split(',');
+                DataRow dr = dt.NewRow();
 
-                dt.Rows.Add(splitLine);
+                dr[(string)data[0][0]] = (string)data[0][i];
+                dr[(string)data[1][0]] = (string)data[1][i];
+                dr[(string)data[2][0]] = (string)data[2][i];
+                dr[(string)data[3][0]] = (double)data[3][i];
+                dr[(string)data[4][0]] = (double)data[4][i];
+
+                dt.Rows.Add(dr);
             }
-
+            
             dataGridView1.DataSource = dt;
 
             button2.Enabled = true;
