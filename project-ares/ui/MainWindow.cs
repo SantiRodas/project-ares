@@ -226,5 +226,15 @@ namespace project_ares.ui
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ChartWindow secondForm = new ChartWindow(dt);
+
+            secondForm.Show();
+
+        }
+
+        // ------------------------------------------------------------------------------
+
     }
 }

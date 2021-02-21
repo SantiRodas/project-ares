@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="model\DataSetManager.cs" />
+    <Compile Include="ui\ChartWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\ChartWindow.Designer.cs">
+      <DependentUpon>ChartWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +68,9 @@
     </Compile>
     <Compile Include="ui\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ui\ChartWindow.resx">
+      <DependentUpon>ChartWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
