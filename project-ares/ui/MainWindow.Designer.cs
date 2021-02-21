@@ -38,12 +38,11 @@ namespace project_ares.ui
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.categoricComboBox = new System.Windows.Forms.ComboBox();
+            this.fieldsComboBox = new System.Windows.Forms.ComboBox();
+            this.stringTextBox = new System.Windows.Forms.TextBox();
+            this.numberMinTextBox = new System.Windows.Forms.TextBox();
+            this.numberMaxTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +86,7 @@ namespace project_ares.ui
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1094, 12);
+            this.button2.Location = new System.Drawing.Point(1105, 114);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(74, 23);
             this.button2.TabIndex = 2;
@@ -135,77 +134,54 @@ namespace project_ares.ui
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // radioButton1
+            // categoricComboBox
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(1050, 45);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(28, 17);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "-";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.categoricComboBox.FormattingEnabled = true;
+            this.categoricComboBox.Location = new System.Drawing.Point(1073, 37);
+            this.categoricComboBox.Name = "categoricComboBox";
+            this.categoricComboBox.Size = new System.Drawing.Size(121, 21);
+            this.categoricComboBox.TabIndex = 11;
             // 
-            // radioButton2
+            // fieldsComboBox
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(1050, 68);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(28, 17);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "-";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.fieldsComboBox.FormattingEnabled = true;
+            this.fieldsComboBox.Location = new System.Drawing.Point(1073, 10);
+            this.fieldsComboBox.Name = "fieldsComboBox";
+            this.fieldsComboBox.Size = new System.Drawing.Size(121, 21);
+            this.fieldsComboBox.TabIndex = 14;
+            this.fieldsComboBox.SelectedIndexChanged += new System.EventHandler(this.fieldsComboBox_SelectedValueChanged);
             // 
-            // radioButton3
+            // stringTextBox
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(1050, 91);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(28, 17);
-            this.radioButton3.TabIndex = 10;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "-";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.stringTextBox.Location = new System.Drawing.Point(1084, 64);
+            this.stringTextBox.Name = "stringTextBox";
+            this.stringTextBox.Size = new System.Drawing.Size(100, 20);
+            this.stringTextBox.TabIndex = 15;
             // 
-            // comboBox1
+            // numberMinTextBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1084, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
+            this.numberMinTextBox.Location = new System.Drawing.Point(1050, 90);
+            this.numberMinTextBox.Name = "numberMinTextBox";
+            this.numberMinTextBox.Size = new System.Drawing.Size(76, 20);
+            this.numberMinTextBox.TabIndex = 16;
             // 
-            // comboBox2
+            // numberMaxTextBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1084, 64);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 12;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1084, 87);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 13;
+            this.numberMaxTextBox.Location = new System.Drawing.Point(1132, 90);
+            this.numberMaxTextBox.Name = "numberMaxTextBox";
+            this.numberMaxTextBox.Size = new System.Drawing.Size(76, 20);
+            this.numberMaxTextBox.TabIndex = 18;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 649);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.numberMaxTextBox);
+            this.Controls.Add(this.numberMinTextBox);
+            this.Controls.Add(this.stringTextBox);
+            this.Controls.Add(this.fieldsComboBox);
+            this.Controls.Add(this.categoricComboBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
@@ -236,12 +212,11 @@ namespace project_ares.ui
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox categoricComboBox;
+        private System.Windows.Forms.ComboBox fieldsComboBox;
+        private System.Windows.Forms.TextBox stringTextBox;
+        private System.Windows.Forms.TextBox numberMinTextBox;
+        private System.Windows.Forms.TextBox numberMaxTextBox;
     }
 }
 

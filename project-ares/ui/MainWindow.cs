@@ -41,7 +41,7 @@ namespace project_ares.ui
             for (int i = 65; i <= 90; i++)
             {
 
-                comboBox1.Items.Add((char)i);
+                categoricComboBox.Items.Add((char)i);
 
             }
 
@@ -49,13 +49,11 @@ namespace project_ares.ui
             button3.Enabled = false;
             button5.Enabled = false;
 
-            radioButton1.Enabled = false;
-            radioButton2.Enabled = false;
-            radioButton3.Enabled = false;
+            categoricComboBox.Enabled = false;
+            stringTextBox.Enabled = false;
+            numberMinTextBox.Enabled = false;
+            numberMaxTextBox.Enabled = false;
 
-            comboBox1.Enabled = false;
-            comboBox2.Enabled = false;
-            comboBox3.Enabled = false;
 
             dt = new DataTable();
 
@@ -63,7 +61,7 @@ namespace project_ares.ui
 
         // ------------------------------------------------------------------------------
 
-        // Click method of the Button1
+        // Click method of the Button1, loads table
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -79,8 +77,7 @@ namespace project_ares.ui
             dt.Columns.Add((string)data[2][0], typeof(string));
             dt.Columns.Add((string)data[3][0], typeof(double));
             dt.Columns.Add((string)data[4][0], typeof(double));
-
-            
+               
 
             for (int i = 1; i < data[0].Count; i++)
             {
@@ -101,14 +98,13 @@ namespace project_ares.ui
             button3.Enabled = true;
             button5.Enabled = true;
 
-            radioButton1.Enabled = true;
-            radioButton2.Enabled = true;
-            radioButton3.Enabled = true;
+            for(int i = 0 ; i < dt.Columns.Count ; i++)
+            {
+                fieldsComboBox.Items.Add(dt.Columns[i].ColumnName);
+            }
 
-            comboBox1.Enabled = true;
-            comboBox2.Enabled = true;
-            comboBox3.Enabled = true;
-
+            fieldsComboBox.Items.Add(dt.Columns[0].ColumnName + " (First letter) ");
+            fieldsComboBox.Items.Add(dt.Columns[1].ColumnName + " (First letter) ");
         }
 
         // ------------------------------------------------------------------------------
@@ -126,138 +122,109 @@ namespace project_ares.ui
             gMapControl1.Overlays.Add(markers);
             gMapControl1.Overlays.Add(polygons);
 
-        }
-
-        // ------------------------------------------------------------------------------
-
-        // Validation of the radio button 1
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if(radioButton1.Checked == true)
-            {
-
-                comboBox2.Enabled = false;
-                comboBox3.Enabled = false;
-
-            }
-            else
-            {
-
-                comboBox2.Enabled = true;
-                comboBox3.Enabled = true;
-
-            }
-
-        }
-
-        // ------------------------------------------------------------------------------
-
-        // Validation of the radio button 2
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (radioButton2.Checked == true)
-            {
-
-                comboBox1.Enabled = false;
-                comboBox3.Enabled = false;
-
-            }
-            else
-            {
-
-                comboBox1.Enabled = true;
-                comboBox3.Enabled = true;
-
-            }
-
-        }
-
-        // ------------------------------------------------------------------------------
-
-        // Validation of the radio button 3
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (radioButton3.Checked == true)
-            {
-
-                comboBox1.Enabled = false;
-                comboBox2.Enabled = false;
-
-            }
-            else
-            {
-
-                comboBox1.Enabled = true;
-                comboBox2.Enabled = true;
-
-            }
-
-        }
-
+        }    
+       
         // ------------------------------------------------------------------------------
 
         // Filter data
-
+        
         private void button2_Click(object sender, EventArgs e)
+        {        
+            DataView dv = new DataView(dt);
+
+            if (fieldsComboBox.SelectedItem.Equals(dt.Columns[0].ColumnName))
+            {
+                string name = stringTextBox.Text;
+                dv.RowFilter = $"Name LIKE \'%{name}%\'";
+            }
+            else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[1].ColumnName))
+            {
+                string lastname = stringTextBox.Text;
+                dv.RowFilter = $"Last_Name LIKE \'%{lastname}%\'";
+            }
+            else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[2].ColumnName))
+            {
+               
+            }
+            else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[3].ColumnName))
+            {
+                double minLatitude = Double.Parse(numberMinTextBox.Text,CultureInfo.InvariantCulture);
+                double maxLatitude = Double.Parse(numberMaxTextBox.Text,CultureInfo.InvariantCulture);
+
+                dv.RowFilter = $"Latitude >= '{minLatitude}' && Longitude <= '{maxLatitude}'";
+            }
+            else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[4].ColumnName))
+            {
+                double minLongitude = Double.Parse(numberMinTextBox.Text, CultureInfo.InvariantCulture);
+                double maxLongitude = Double.Parse(numberMaxTextBox.Text, CultureInfo.InvariantCulture);
+
+                dv.RowFilter = $"Longitude >= '{minLongitude}' && Longitude <= '{maxLongitude}'";
+            }
+            else
+            {                
+                if (((string)fieldsComboBox.SelectedItem).Equals(dt.Columns[0].ColumnName + " (First letter) "))
+                {
+                    string letter = Char.ToString((char)categoricComboBox.SelectedItem);
+                    dv.RowFilter = $"Name LIKE \'{letter}*\'";
+                }
+                else
+                {
+                    string letter = Char.ToString((char)categoricComboBox.SelectedItem);
+                    dv.RowFilter = $"Last_name LIKE \'{letter}*\'";
+                }
+            }
+            dataGridView1.DataSource = dv;
+        }
+        
+        // ------------------------------------------------------------------------------
+
+        private void fieldsComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            if (radioButton1.Checked == true)
+            if (fieldsComboBox.SelectedItem.Equals(dt.Columns[0].ColumnName))
             {
-
-                char l = (char)comboBox1.SelectedItem;
-
-                dt.Clear();
-
-                dt.Columns.Clear();
-
-                dt.Rows.Clear();
-
-                string content = File.ReadAllText(openFileDialog1.FileName);
-
-                string[] splitContent = content.Split('\n');
-
-                string[] splitLine = splitContent[0].Split(',');
-
-                dt.Columns.Add(splitLine[0]);
-                dt.Columns.Add(splitLine[1]);
-                dt.Columns.Add(splitLine[2]);
-                dt.Columns.Add(splitLine[3]);
-                dt.Columns.Add(splitLine[4]);
-
-                for (int i = 1; i < splitContent.Length; i++)
-                {
-                    splitLine = splitContent[i].Split(',');
-
-                    if (splitLine[0][0].Equals(l))
-                    {
-                        dt.Rows.Add(splitLine);
-                    }
-                }
-
-                dataGridView1.DataSource = dt;
-
-            } else if (radioButton2.Checked == true)
+                categoricComboBox.Enabled = false;
+                numberMaxTextBox.Enabled = false;
+                numberMinTextBox.Enabled = false;
+                stringTextBox.Enabled = true;
+            }
+            else if(fieldsComboBox.SelectedItem.Equals(dt.Columns[1].ColumnName))
             {
-
-            } else if (radioButton3.Checked == true)
+                categoricComboBox.Enabled = false;
+                numberMaxTextBox.Enabled = false;
+                numberMinTextBox.Enabled = false;
+                stringTextBox.Enabled = true;
+            }
+            else if(fieldsComboBox.SelectedItem.Equals(dt.Columns[2].ColumnName))
             {
-
-            } else
+                categoricComboBox.Enabled = false;
+                numberMaxTextBox.Enabled = true;
+                numberMinTextBox.Enabled = true;
+                stringTextBox.Enabled = false;
+            }
+            else if(fieldsComboBox.SelectedItem.Equals(dt.Columns[3].ColumnName))
             {
-
-                MessageBox.Show("Select an option", "Attention");
-
+                categoricComboBox.Enabled = false;
+                numberMaxTextBox.Enabled = true;
+                numberMinTextBox.Enabled = true;
+                stringTextBox.Enabled = false;
+            }
+            else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[4].ColumnName))
+            {
+                categoricComboBox.Enabled = false;
+                numberMaxTextBox.Enabled = true;
+                numberMinTextBox.Enabled = true;
+                stringTextBox.Enabled = false;
+            }
+            else
+            {
+                categoricComboBox.Enabled = true;
+                numberMaxTextBox.Enabled = false;
+                numberMinTextBox.Enabled = false;
+                stringTextBox.Enabled = false;
             }
 
         }
-
-        // ------------------------------------------------------------------------------
 
     }
 }
