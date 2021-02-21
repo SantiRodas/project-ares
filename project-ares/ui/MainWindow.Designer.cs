@@ -43,6 +43,7 @@ namespace project_ares.ui
             this.stringTextBox = new System.Windows.Forms.TextBox();
             this.numberMinTextBox = new System.Windows.Forms.TextBox();
             this.numberMaxTextBox = new System.Windows.Forms.TextBox();
+            this.resetButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +87,7 @@ namespace project_ares.ui
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1105, 114);
+            this.button2.Location = new System.Drawing.Point(1052, 113);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(74, 23);
             this.button2.TabIndex = 2;
@@ -137,6 +138,7 @@ namespace project_ares.ui
             // 
             // categoricComboBox
             // 
+            this.categoricComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoricComboBox.FormattingEnabled = true;
             this.categoricComboBox.Location = new System.Drawing.Point(1073, 37);
             this.categoricComboBox.Name = "categoricComboBox";
@@ -145,6 +147,7 @@ namespace project_ares.ui
             // 
             // fieldsComboBox
             // 
+            this.fieldsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fieldsComboBox.FormattingEnabled = true;
             this.fieldsComboBox.Location = new System.Drawing.Point(1073, 10);
             this.fieldsComboBox.Name = "fieldsComboBox";
@@ -173,11 +176,22 @@ namespace project_ares.ui
             this.numberMaxTextBox.Size = new System.Drawing.Size(76, 20);
             this.numberMaxTextBox.TabIndex = 18;
             // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(1132, 113);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.TabIndex = 19;
+            this.resetButton.Text = "Reset Table";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 649);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.numberMaxTextBox);
             this.Controls.Add(this.numberMinTextBox);
             this.Controls.Add(this.stringTextBox);
@@ -218,6 +232,7 @@ namespace project_ares.ui
         private System.Windows.Forms.TextBox stringTextBox;
         private System.Windows.Forms.TextBox numberMinTextBox;
         private System.Windows.Forms.TextBox numberMaxTextBox;
+        private System.Windows.Forms.Button resetButton;
     }
 }
 

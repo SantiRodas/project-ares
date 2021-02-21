@@ -27,6 +27,7 @@ namespace project_ares.ui
 
         private DataTable dt;
         private DataSetManager dsM;
+        private DataView dv;
         GMapOverlay markers = new GMapOverlay("markers"); 
         GMapOverlay polygons = new GMapOverlay("polygons");
 
@@ -48,7 +49,9 @@ namespace project_ares.ui
             button2.Enabled = false;
             button3.Enabled = false;
             button5.Enabled = false;
+            resetButton.Enabled = false;
 
+            fieldsComboBox.Enabled = false;
             categoricComboBox.Enabled = false;
             stringTextBox.Enabled = false;
             numberMinTextBox.Enabled = false;
@@ -56,6 +59,7 @@ namespace project_ares.ui
 
 
             dt = new DataTable();
+            dv = new DataView(dt);
 
         }
 
@@ -74,7 +78,7 @@ namespace project_ares.ui
 
             dt.Columns.Add((string)data[0][0], typeof(string));
             dt.Columns.Add((string)data[1][0], typeof(string));
-            dt.Columns.Add((string)data[2][0], typeof(string));
+            dt.Columns.Add((string)data[2][0], typeof(int));
             dt.Columns.Add((string)data[3][0], typeof(double));
             dt.Columns.Add((string)data[4][0], typeof(double));
                
@@ -85,18 +89,19 @@ namespace project_ares.ui
 
                 dr[(string)data[0][0]] = (string)data[0][i];
                 dr[(string)data[1][0]] = (string)data[1][i];
-                dr[(string)data[2][0]] = (string)data[2][i];
+                dr[(string)data[2][0]] = (int)data[2][i];
                 dr[(string)data[3][0]] = (double)data[3][i];
                 dr[(string)data[4][0]] = (double)data[4][i];
 
                 dt.Rows.Add(dr);
             }
             
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = dv;
 
-            button2.Enabled = true;
             button3.Enabled = true;
             button5.Enabled = true;
+            resetButton.Enabled = true;
+            fieldsComboBox.Enabled = true;
 
             for(int i = 0 ; i < dt.Columns.Count ; i++)
             {
@@ -130,8 +135,7 @@ namespace project_ares.ui
         
         private void button2_Click(object sender, EventArgs e)
         {        
-            DataView dv = new DataView(dt);
-
+            
             if (fieldsComboBox.SelectedItem.Equals(dt.Columns[0].ColumnName))
             {
                 string name = stringTextBox.Text;
@@ -144,22 +148,47 @@ namespace project_ares.ui
             }
             else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[2].ColumnName))
             {
-               
+                try
+                {
+                    double minHour = Double.Parse(numberMinTextBox.Text, CultureInfo.InvariantCulture);
+                    double maxHour = Double.Parse(numberMaxTextBox.Text, CultureInfo.InvariantCulture);
+
+                    dv.RowFilter = $"Time >= {minHour} AND Time <= {maxHour}";
+                }
+                catch(FormatException)
+                {
+                    WrongNumberFormatMessageBox();
+                }            
+                
             }
             else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[3].ColumnName))
             {
-                double minLatitude = Double.Parse(numberMinTextBox.Text,CultureInfo.InvariantCulture);
-                double maxLatitude = Double.Parse(numberMaxTextBox.Text,CultureInfo.InvariantCulture);
+                try 
+                { 
+                    double minLatitude = Double.Parse(numberMinTextBox.Text,CultureInfo.InvariantCulture);
+                    double maxLatitude = Double.Parse(numberMaxTextBox.Text,CultureInfo.InvariantCulture);
 
-                dv.RowFilter = $"Latitude >= '{minLatitude}' && Longitude <= '{maxLatitude}'";
-            }
+                    dv.RowFilter = $"Latitude >= {minLatitude} AND Latitude <= {maxLatitude}";
+                }
+                catch (FormatException)
+                {
+                    WrongNumberFormatMessageBox();
+                }
+        }
             else if (fieldsComboBox.SelectedItem.Equals(dt.Columns[4].ColumnName))
             {
-                double minLongitude = Double.Parse(numberMinTextBox.Text, CultureInfo.InvariantCulture);
-                double maxLongitude = Double.Parse(numberMaxTextBox.Text, CultureInfo.InvariantCulture);
+                try 
+                { 
+                    double minLongitude = Double.Parse(numberMinTextBox.Text, CultureInfo.InvariantCulture);
+                    double maxLongitude = Double.Parse(numberMaxTextBox.Text, CultureInfo.InvariantCulture);
 
-                dv.RowFilter = $"Longitude >= '{minLongitude}' && Longitude <= '{maxLongitude}'";
-            }
+                    dv.RowFilter = $"Longitude >= {minLongitude} AND Longitude <= {maxLongitude}";
+                }
+                catch (FormatException)
+                {
+                    WrongNumberFormatMessageBox();
+                }
+        }
             else
             {                
                 if (((string)fieldsComboBox.SelectedItem).Equals(dt.Columns[0].ColumnName + " (First letter) "))
@@ -173,14 +202,17 @@ namespace project_ares.ui
                     dv.RowFilter = $"Last_name LIKE \'{letter}*\'";
                 }
             }
-            dataGridView1.DataSource = dv;
         }
         
         // ------------------------------------------------------------------------------
 
         private void fieldsComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            button2.Enabled = true;
+            categoricComboBox.SelectedValue = "";
+            numberMaxTextBox.Text = "";
+            numberMinTextBox.Text = "";
+            stringTextBox.Text = "";
             if (fieldsComboBox.SelectedItem.Equals(dt.Columns[0].ColumnName))
             {
                 categoricComboBox.Enabled = false;
@@ -234,6 +266,16 @@ namespace project_ares.ui
 
         }
 
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            dv.RowFilter = "";
+        }
+
+        private void WrongNumberFormatMessageBox()
+        {
+            MessageBox.Show("Error filtering data: Make sure the format is right, the fields are complete, and the maximum value is larger than the minimum"
+                ,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+        }
         // ------------------------------------------------------------------------------
 
     }

@@ -46,7 +46,21 @@ namespace project_ares.model
                     line = sr.ReadLine().Split(',');
                     data[0].Add(line[0]);
                     data[1].Add(line[1]);
-                    data[2].Add(line[2]);
+
+
+                    string[] splitHour = line[2].Split(':');
+
+                    int hour = int.Parse(splitHour[0] + "00");
+
+                    int minute = int.Parse(splitHour[1].Substring(0,2));
+
+                    string dayMoment = splitHour[1].Substring(3,2);
+
+                    hour = dayMoment.Equals("PM") ? (hour < 1200?  hour + 1200 : hour): (hour < 1200? hour : hour - 1200);
+
+                    int time = hour + minute;
+
+                    data[2].Add(time);
                     data[3].Add(Double.Parse(line[3],CultureInfo.InvariantCulture));
                     data[4].Add(Double.Parse(line[4], CultureInfo.InvariantCulture));
                 }
