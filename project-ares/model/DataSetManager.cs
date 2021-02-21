@@ -22,20 +22,29 @@ namespace project_ares.model
         
             for(int i = 0; i < data.Length; i++)
             {
-                data[i] = new ArrayList();
-            }                
-        
+                data[i] = new ArrayList();                
+            }       
+
         }
 
         public void Load(string path)
         {
             StreamReader sr  = new StreamReader(File.OpenRead(path));
 
-            while (!sr.EndOfStream)
+            if (!sr.EndOfStream)
             {
                 string[] line = sr.ReadLine().Split(',');
-            }
 
+                while (!sr.EndOfStream)
+                {
+                    line = sr.ReadLine().Split(',');
+                    data[0].Add(line[0]);
+                    data[1].Add(line[1]);
+                    data[2].Add(line[2]);
+                    data[3].Add(line[3]);
+                    data[4].Add(line[4]);
+                }
+            }
 
         }
 
