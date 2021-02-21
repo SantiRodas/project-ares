@@ -52,8 +52,8 @@ namespace project_ares.ui
             this.gMapControl1.LevelsKeepInMemmory = 5;
             this.gMapControl1.Location = new System.Drawing.Point(12, 12);
             this.gMapControl1.MarkersEnabled = true;
-            this.gMapControl1.MaxZoom = 2;
-            this.gMapControl1.MinZoom = 2;
+            this.gMapControl1.MaxZoom = 20;
+            this.gMapControl1.MinZoom = 1;
             this.gMapControl1.MouseWheelZoomEnabled = true;
             this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gMapControl1.Name = "gMapControl1";
@@ -66,7 +66,8 @@ namespace project_ares.ui
             this.gMapControl1.ShowTileGridLines = false;
             this.gMapControl1.Size = new System.Drawing.Size(839, 625);
             this.gMapControl1.TabIndex = 0;
-            this.gMapControl1.Zoom = 0D;
+            this.gMapControl1.Zoom = 10D;
+            this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
             // 
             // button1
             // 
@@ -118,16 +119,16 @@ namespace project_ares.ui
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(857, 205);
+            this.dataGridView1.Location = new System.Drawing.Point(866, 205);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(343, 432);
+            this.dataGridView1.Size = new System.Drawing.Size(334, 432);
             this.dataGridView1.TabIndex = 7;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +142,7 @@ namespace project_ares.ui
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Ares";
