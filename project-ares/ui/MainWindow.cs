@@ -48,7 +48,6 @@ namespace project_ares.ui
 
             button2.Enabled = false;
             button3.Enabled = false;
-            button5.Enabled = false;
             resetButton.Enabled = false;
 
             fieldsComboBox.Enabled = false;
@@ -99,7 +98,6 @@ namespace project_ares.ui
             dataGridView1.DataSource = dv;
 
             button3.Enabled = true;
-            button5.Enabled = true;
             resetButton.Enabled = true;
             fieldsComboBox.Enabled = true;
 
@@ -110,6 +108,9 @@ namespace project_ares.ui
 
             fieldsComboBox.Items.Add(dt.Columns[0].ColumnName + " (First letter) ");
             fieldsComboBox.Items.Add(dt.Columns[1].ColumnName + " (First letter) ");
+
+            LoadMarkers();
+            LoadPolygons();
         }
 
         // ------------------------------------------------------------------------------
@@ -202,6 +203,8 @@ namespace project_ares.ui
                     dv.RowFilter = $"Last_name LIKE \'{letter}*\'";
                 }
             }
+            LoadMarkers();
+            LoadPolygons();
         }
         
         // ------------------------------------------------------------------------------
@@ -278,5 +281,47 @@ namespace project_ares.ui
         }
         // ------------------------------------------------------------------------------
 
+        private void LoadMarkers()
+        {
+            markers.Clear();
+            foreach (DataRow dr in dv.ToTable().Rows)
+            {
+                PointLatLng point = new PointLatLng((double)dr["Latitude"], (double)dr["Longitude"]);
+                GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.red_small);
+                marker.ToolTipText = $"{(string)dr["Name"]}" +
+                    $" {(string)dr["Last_name"]} \n" +
+                    $"{((int)dr["Time"]).ToString()} \n" +
+                    $"{((double)dr["Latitude"]).ToString(CultureInfo.InvariantCulture)}, {((double)dr["Longitude"]).ToString(CultureInfo.InvariantCulture)}";
+                markers.Markers.Add(marker);
+            }
+        }
+
+        private void LoadPolygons()
+        {
+            polygons.Clear();
+            foreach (DataRow dr in dv.ToTable().Rows)
+            {
+                double centerLat = (double)dr["Latitude"];
+                double centerLng = (double)dr["Longitude"];
+
+                //0.005 lat = 500m aprox
+
+                PointLatLng point1 = new PointLatLng(centerLat - 0.01, centerLng + 0.01);
+                PointLatLng point2 = new PointLatLng(centerLat - 0.01, centerLng - 0.01);
+                PointLatLng point3 = new PointLatLng(centerLat + 0.01, centerLng - 0.01);
+                PointLatLng point4 = new PointLatLng(centerLat + 0.01, centerLng + 0.01);
+
+                List<PointLatLng> points = new List<PointLatLng>();
+                points.Add(point1);
+                points.Add(point2);
+                points.Add(point3);
+                points.Add(point4);
+
+                GMapPolygon polygon = new GMapPolygon(points, $"{dr["Name"]} {dr["Last_name"]}" );
+                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.OrangeRed));
+                polygon.Stroke = new Pen(Color.Red);
+                markers.Polygons.Add(polygon);
+            }
+        }
     }
 }
