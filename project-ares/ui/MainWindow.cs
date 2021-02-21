@@ -41,9 +41,7 @@ namespace project_ares.ui
 
             for (int i = 65; i <= 90; i++)
             {
-
                 categoricComboBox.Items.Add((char)i);
-
             }
 
             button2.Enabled = false;
@@ -59,7 +57,17 @@ namespace project_ares.ui
 
             dt = new DataTable();
             dv = new DataView(dt);
+        }
 
+        // ------------------------------------------------------------------------------
+
+        // Method to reseat all the information of the data view
+
+        public void reseat()
+        {
+            dt.Clear();
+            dt.Columns.Clear();
+            dsM = new DataSetManager();
         }
 
         // ------------------------------------------------------------------------------
@@ -68,49 +76,60 @@ namespace project_ares.ui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-
-            dsM = new DataSetManager();
-            dsM.Load(openFileDialog1.FileName);
-
-            ArrayList[] data = dsM.Data;
-
-            dt.Columns.Add((string)data[0][0], typeof(string));
-            dt.Columns.Add((string)data[1][0], typeof(string));
-            dt.Columns.Add((string)data[2][0], typeof(int));
-            dt.Columns.Add((string)data[3][0], typeof(double));
-            dt.Columns.Add((string)data[4][0], typeof(double));
-               
-
-            for (int i = 1; i < data[0].Count; i++)
+            try
             {
-                DataRow dr = dt.NewRow();
+                reseat();
 
-                dr[(string)data[0][0]] = (string)data[0][i];
-                dr[(string)data[1][0]] = (string)data[1][i];
-                dr[(string)data[2][0]] = (int)data[2][i];
-                dr[(string)data[3][0]] = (double)data[3][i];
-                dr[(string)data[4][0]] = (double)data[4][i];
+                openFileDialog1.ShowDialog();
 
-                dt.Rows.Add(dr);
+                dsM = new DataSetManager();
+                dsM.Load(openFileDialog1.FileName);
+
+                ArrayList[] data = dsM.Data;
+
+                dt.Columns.Add((string)data[0][0], typeof(string));
+                dt.Columns.Add((string)data[1][0], typeof(string));
+                dt.Columns.Add((string)data[2][0], typeof(int));
+                dt.Columns.Add((string)data[3][0], typeof(double));
+                dt.Columns.Add((string)data[4][0], typeof(double));
+
+
+                for (int i = 1; i < data[0].Count; i++)
+                {
+                    DataRow dr = dt.NewRow();
+
+                    dr[(string)data[0][0]] = (string)data[0][i];
+                    dr[(string)data[1][0]] = (string)data[1][i];
+                    dr[(string)data[2][0]] = (int)data[2][i];
+                    dr[(string)data[3][0]] = (double)data[3][i];
+                    dr[(string)data[4][0]] = (double)data[4][i];
+
+                    dt.Rows.Add(dr);
+                }
+
+                dataGridView1.DataSource = dv;
+
+                button3.Enabled = true;
+                resetButton.Enabled = true;
+                fieldsComboBox.Enabled = true;
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    fieldsComboBox.Items.Add(dt.Columns[i].ColumnName);
+                }
+
+                fieldsComboBox.Items.Add(dt.Columns[0].ColumnName + " (First letter) ");
+                fieldsComboBox.Items.Add(dt.Columns[1].ColumnName + " (First letter) ");
+
+                LoadMarkers();
+                LoadPolygons();
+
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Try to get a dataset", "Attention");
             }
             
-            dataGridView1.DataSource = dv;
-
-            button3.Enabled = true;
-            resetButton.Enabled = true;
-            fieldsComboBox.Enabled = true;
-
-            for(int i = 0 ; i < dt.Columns.Count ; i++)
-            {
-                fieldsComboBox.Items.Add(dt.Columns[i].ColumnName);
-            }
-
-            fieldsComboBox.Items.Add(dt.Columns[0].ColumnName + " (First letter) ");
-            fieldsComboBox.Items.Add(dt.Columns[1].ColumnName + " (First letter) ");
-
-            LoadMarkers();
-            LoadPolygons();
         }
 
         // ------------------------------------------------------------------------------
@@ -119,7 +138,6 @@ namespace project_ares.ui
 
         private void gMapControl1_Load(object sender, EventArgs e)
         {
-
             gMapControl1.MapProvider = GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
 
@@ -127,7 +145,6 @@ namespace project_ares.ui
 
             gMapControl1.Overlays.Add(markers);
             gMapControl1.Overlays.Add(polygons);
-
         }    
        
         // ------------------------------------------------------------------------------
@@ -136,7 +153,6 @@ namespace project_ares.ui
         
         private void button2_Click(object sender, EventArgs e)
         {        
-            
             if (fieldsComboBox.SelectedItem.Equals(dt.Columns[0].ColumnName))
             {
                 string name = stringTextBox.Text;
@@ -261,6 +277,10 @@ namespace project_ares.ui
 
         }
 
+        // ------------------------------------------------------------------------------
+
+        // Click method of the button 3
+
         private void button3_Click(object sender, EventArgs e)
         {
             ChartWindow secondForm = new ChartWindow(dv);
@@ -269,17 +289,28 @@ namespace project_ares.ui
 
         }
 
+        // ------------------------------------------------------------------------------
+
+        // Reset method of the button click
+
         private void resetButton_Click(object sender, EventArgs e)
         {
             dv.RowFilter = "";
         }
+
+        // ------------------------------------------------------------------------------
+
+        // Wrong number format method to show a message box
 
         private void WrongNumberFormatMessageBox()
         {
             MessageBox.Show("Error filtering data: Make sure the format is right, the fields are complete, and the maximum value is larger than the minimum"
                 ,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
+
         // ------------------------------------------------------------------------------
+
+        // Load markers method to show in the GMap
 
         private void LoadMarkers()
         {
@@ -295,6 +326,10 @@ namespace project_ares.ui
                 markers.Markers.Add(marker);
             }
         }
+
+        // ------------------------------------------------------------------------------
+
+        // Load polygons method
 
         private void LoadPolygons()
         {
@@ -323,5 +358,7 @@ namespace project_ares.ui
                 markers.Polygons.Add(polygon);
             }
         }
+
     }
+
 }
