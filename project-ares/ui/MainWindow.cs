@@ -38,8 +38,24 @@ namespace project_ares.ui
         {
             InitializeComponent();
 
+            for (int i = 65; i <= 90; i++)
+            {
+
+                comboBox1.Items.Add((char)i);
+
+            }
+
             button2.Enabled = false;
             button3.Enabled = false;
+            button5.Enabled = false;
+
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
+            radioButton3.Enabled = false;
+
+            comboBox1.Enabled = false;
+            comboBox2.Enabled = false;
+            comboBox3.Enabled = false;
 
             dt = new DataTable();
 
@@ -82,8 +98,16 @@ namespace project_ares.ui
             dataGridView1.DataSource = dt;
 
             button2.Enabled = true;
-
             button3.Enabled = true;
+            button5.Enabled = true;
+
+            radioButton1.Enabled = true;
+            radioButton2.Enabled = true;
+            radioButton3.Enabled = true;
+
+            comboBox1.Enabled = true;
+            comboBox2.Enabled = true;
+            comboBox3.Enabled = true;
 
         }
 
@@ -101,6 +125,135 @@ namespace project_ares.ui
 
             gMapControl1.Overlays.Add(markers);
             gMapControl1.Overlays.Add(polygons);
+
+        }
+
+        // ------------------------------------------------------------------------------
+
+        // Validation of the radio button 1
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if(radioButton1.Checked == true)
+            {
+
+                comboBox2.Enabled = false;
+                comboBox3.Enabled = false;
+
+            }
+            else
+            {
+
+                comboBox2.Enabled = true;
+                comboBox3.Enabled = true;
+
+            }
+
+        }
+
+        // ------------------------------------------------------------------------------
+
+        // Validation of the radio button 2
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (radioButton2.Checked == true)
+            {
+
+                comboBox1.Enabled = false;
+                comboBox3.Enabled = false;
+
+            }
+            else
+            {
+
+                comboBox1.Enabled = true;
+                comboBox3.Enabled = true;
+
+            }
+
+        }
+
+        // ------------------------------------------------------------------------------
+
+        // Validation of the radio button 3
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (radioButton3.Checked == true)
+            {
+
+                comboBox1.Enabled = false;
+                comboBox2.Enabled = false;
+
+            }
+            else
+            {
+
+                comboBox1.Enabled = true;
+                comboBox2.Enabled = true;
+
+            }
+
+        }
+
+        // ------------------------------------------------------------------------------
+
+        // Filter data
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (radioButton1.Checked == true)
+            {
+
+                char l = (char)comboBox1.SelectedItem;
+
+                dt.Clear();
+
+                dt.Columns.Clear();
+
+                dt.Rows.Clear();
+
+                string content = File.ReadAllText(openFileDialog1.FileName);
+
+                string[] splitContent = content.Split('\n');
+
+                string[] splitLine = splitContent[0].Split(',');
+
+                dt.Columns.Add(splitLine[0]);
+                dt.Columns.Add(splitLine[1]);
+                dt.Columns.Add(splitLine[2]);
+                dt.Columns.Add(splitLine[3]);
+                dt.Columns.Add(splitLine[4]);
+
+                for (int i = 1; i < splitContent.Length; i++)
+                {
+                    splitLine = splitContent[i].Split(',');
+
+                    if (splitLine[0][0].Equals(l))
+                    {
+                        dt.Rows.Add(splitLine);
+                    }
+                }
+
+                dataGridView1.DataSource = dt;
+
+            } else if (radioButton2.Checked == true)
+            {
+
+            } else if (radioButton3.Checked == true)
+            {
+
+            } else
+            {
+
+                MessageBox.Show("Select an option", "Attention");
+
+            }
 
         }
 
