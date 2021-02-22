@@ -21,6 +21,9 @@ Functional program in C # that allows reading a file with information related to
 * https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20clases.pdf
 * https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20objetos.pdf
 
+* Explanatory video
+* https://youtu.be/CBwMIeW_Yek
+
 ## Tools used
 * Google Docs
 * LucidChart
