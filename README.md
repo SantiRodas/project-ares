@@ -12,10 +12,14 @@ Functional program in C # that allows reading a file with information related to
 
 ## Stages of construction
 * Analysis
-https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Analisis.pdf
+
+* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Analisis.pdf
+* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Metodo%20de%20la%20ingenieria.pdf
 
 * Design
-https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Metodo%20de%20la%20ingenieria.pdf
+
+* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20clases.pdf
+* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20objetos.pdf
 
 ## Tools used
 * Google Docs
