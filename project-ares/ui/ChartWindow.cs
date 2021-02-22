@@ -24,11 +24,11 @@ namespace project_ares.ui
 
         // Constructor method of the chart window
 
-        public ChartWindow(DataTable dt)
+        public ChartWindow(DataView dv)
         {
             InitializeComponent();
 
-            dataTable = dt;
+            dataTable = dv.ToTable();
 
             for (int i = 65; i <= 90; i++)
             {
@@ -66,7 +66,6 @@ namespace project_ares.ui
 
                 foreach (DataRow dr in rows)
                 {
-
                     object[] data = dr.ItemArray;
 
                     word = (string)data[0];
@@ -74,11 +73,9 @@ namespace project_ares.ui
                     if (word[0].Equals(l))
                     {
                         size++;
-
                     }
 
                 }
-
 
                 string[] series = { l.ToString() };
                 int[] valores = { size };
@@ -87,20 +84,16 @@ namespace project_ares.ui
 
                 for (int i = 0; i < series.Length; i++)
                 {
-
                     Series serie = chart1.Series.Add(series[i]);
 
                     serie.Label = valores[i].ToString();
 
                     serie.Points.Add(valores[i]);
-
                 }
 
             } else
             {
-
                 MessageBox.Show("Select one item", "Attention");
-
             }
 
         }
@@ -112,7 +105,6 @@ namespace project_ares.ui
 
             if (comboBox2.SelectedItem != null || comboBox3.SelectedItem != null || comboBox4.SelectedItem != null)
             {
-
                 chart2.Series.Clear();
 
                 chart2.Titles.Clear();
@@ -133,7 +125,6 @@ namespace project_ares.ui
 
                 foreach (DataRow dr in rows)
                 {
-
                     count++;
 
                     object[] data = dr.ItemArray;
@@ -143,17 +134,14 @@ namespace project_ares.ui
                     if (word[0].Equals(l1))
                     {
                         sl1++;
-
                     }
                     else if (word[0].Equals(l2))
                     {
                         sl2++;
-
                     }
                     else if (word[0].Equals(l3))
                     {
                         sl3++;
-
                     }
 
                 }
@@ -169,9 +157,7 @@ namespace project_ares.ui
 
                 for (int i = 0; i < series.Length; i++)
                 {
-
                     chart2.Series["Series2"].Points.AddXY(series[i], valores[i]);
-
                 }
 
                 int t = count - (sl1 + sl2 + sl3);
@@ -184,62 +170,44 @@ namespace project_ares.ui
 
             } else
             {
-
                 MessageBox.Show("Attention", "Select three item's");
-
             }
 
         }
 
+        // ------------------------------------------------------------------------------
+
+        // Button 3 click method
+
         private void button3_Click(object sender, EventArgs e)
         {
-
             chart3.Series.Clear();
 
             chart3.Titles.Clear();
 
             if (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked || radioButton4.Checked)
             {
-
                 DataRowCollection rows = dataTable.Rows;
 
                 int[] counts = new int[6];
 
-                int limitMin = 0;
-                int limitMax = 0;
-
-                int validation = 0;
+                int limitMin;
 
                 if (radioButton1.Checked)
                 {
-                    limitMax = 559;
-
-                    validation = 1;
-
+                    limitMin = 0;
                 }
                 else if (radioButton2.Checked)
                 {
                     limitMin = 600;
-                    limitMax = 1159;
-
-                    validation = 2;
-
                 }
                 else if (radioButton3.Checked)
                 {
                     limitMin = 1200;
-                    limitMax = 1759;
-
-                    validation = 3;
-
                 }
                 else
                 {
                     limitMin = 1800;
-                    limitMax = 2259;
-
-                    validation = 4;
-
                 }
 
                 foreach (DataRow dr in rows)
@@ -258,9 +226,7 @@ namespace project_ares.ui
 
                 for (int i = 0; i < counts.Length; i++)
                 {
-
                     chart3.Series["Series3"].Points.AddXY(limitMin + i * 100, counts[i]);
-
                 }
 
                 chart3.Series["Series3"].Label = "#VALY";
@@ -268,9 +234,7 @@ namespace project_ares.ui
             }
             else
             {
-
                 MessageBox.Show("Select one item to filter", "Attention");
-
             }
 
         }
