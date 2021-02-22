@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
 using System.Globalization;
@@ -11,6 +7,9 @@ namespace project_ares.model
 {
     class DataSetManager
     {
+        /*Stores data as follows: 5 position array for each column, each column is an arraylist 
+         * with the data values correpsonding to that column, first value being the column name        
+        */
         private ArrayList[] data;
 
         public ArrayList[] Data{
@@ -46,7 +45,6 @@ namespace project_ares.model
                     line = sr.ReadLine().Split(',');
                     data[0].Add(line[0]);
                     data[1].Add(line[1]);
-
 
                     string[] splitHour = line[2].Split(':');
 
