@@ -29,56 +29,56 @@ namespace project_ares.ui
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartWindow));
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.firstNameLetterChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.nameOptionsComboBox = new System.Windows.Forms.ComboBox();
+            this.filterNameButton = new System.Windows.Forms.Button();
+            this.lastnameOption1CB = new System.Windows.Forms.ComboBox();
+            this.lastnameOption2CB = new System.Windows.Forms.ComboBox();
+            this.lastnameOption3CB = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
+            this.filterLastnameButton = new System.Windows.Forms.Button();
+            this.firstLastnameLetterChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.timeFilterChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.timeOption1 = new System.Windows.Forms.RadioButton();
+            this.timeOption2 = new System.Windows.Forms.RadioButton();
+            this.timeOption3 = new System.Windows.Forms.RadioButton();
+            this.timeOption4 = new System.Windows.Forms.RadioButton();
+            this.filterTimeButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstNameLetterChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstLastnameLetterChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeFilterChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // chart1
+            // firstNameLetterChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(12, 12);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(437, 301);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            chartArea4.Name = "ChartArea1";
+            this.firstNameLetterChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.firstNameLetterChart.Legends.Add(legend4);
+            this.firstNameLetterChart.Location = new System.Drawing.Point(12, 12);
+            this.firstNameLetterChart.Name = "firstNameLetterChart";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.firstNameLetterChart.Series.Add(series4);
+            this.firstNameLetterChart.Size = new System.Drawing.Size(437, 301);
+            this.firstNameLetterChart.TabIndex = 0;
+            this.firstNameLetterChart.Text = "chart1";
             // 
             // label1
             // 
@@ -96,47 +96,47 @@ namespace project_ares.ui
             this.label2.TabIndex = 2;
             this.label2.Text = "Select a letter to filter the name";
             // 
-            // comboBox1
+            // nameOptionsComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(472, 144);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.nameOptionsComboBox.FormattingEnabled = true;
+            this.nameOptionsComboBox.Location = new System.Drawing.Point(472, 144);
+            this.nameOptionsComboBox.Name = "nameOptionsComboBox";
+            this.nameOptionsComboBox.Size = new System.Drawing.Size(121, 21);
+            this.nameOptionsComboBox.TabIndex = 3;
             // 
-            // button1
+            // filterNameButton
             // 
-            this.button1.Location = new System.Drawing.Point(497, 171);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Generate";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.filterNameButton.Location = new System.Drawing.Point(497, 171);
+            this.filterNameButton.Name = "filterNameButton";
+            this.filterNameButton.Size = new System.Drawing.Size(75, 23);
+            this.filterNameButton.TabIndex = 4;
+            this.filterNameButton.Text = "Generate";
+            this.filterNameButton.UseVisualStyleBackColor = true;
+            this.filterNameButton.Click += new System.EventHandler(this.filterNameButton_Click);
             // 
-            // comboBox2
+            // lastnameOption1CB
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(480, 447);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 6;
+            this.lastnameOption1CB.FormattingEnabled = true;
+            this.lastnameOption1CB.Location = new System.Drawing.Point(480, 447);
+            this.lastnameOption1CB.Name = "lastnameOption1CB";
+            this.lastnameOption1CB.Size = new System.Drawing.Size(121, 21);
+            this.lastnameOption1CB.TabIndex = 6;
             // 
-            // comboBox3
+            // lastnameOption2CB
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(480, 474);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 7;
+            this.lastnameOption2CB.FormattingEnabled = true;
+            this.lastnameOption2CB.Location = new System.Drawing.Point(480, 474);
+            this.lastnameOption2CB.Name = "lastnameOption2CB";
+            this.lastnameOption2CB.Size = new System.Drawing.Size(121, 21);
+            this.lastnameOption2CB.TabIndex = 7;
             // 
-            // comboBox4
+            // lastnameOption3CB
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(480, 501);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 8;
+            this.lastnameOption3CB.FormattingEnabled = true;
+            this.lastnameOption3CB.Location = new System.Drawing.Point(480, 501);
+            this.lastnameOption3CB.Name = "lastnameOption3CB";
+            this.lastnameOption3CB.Size = new System.Drawing.Size(121, 21);
+            this.lastnameOption3CB.TabIndex = 8;
             // 
             // label3
             // 
@@ -147,103 +147,103 @@ namespace project_ares.ui
             this.label3.TabIndex = 9;
             this.label3.Text = "Select a letter to filter the last name";
             // 
-            // button2
+            // filterLastnameButton
             // 
-            this.button2.Location = new System.Drawing.Point(505, 528);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Generate";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.filterLastnameButton.Location = new System.Drawing.Point(505, 528);
+            this.filterLastnameButton.Name = "filterLastnameButton";
+            this.filterLastnameButton.Size = new System.Drawing.Size(75, 23);
+            this.filterLastnameButton.TabIndex = 10;
+            this.filterLastnameButton.Text = "Generate";
+            this.filterLastnameButton.UseVisualStyleBackColor = true;
+            this.filterLastnameButton.Click += new System.EventHandler(this.filterLastnameButton_Click);
             // 
-            // chart2
+            // firstLastnameLetterChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(12, 336);
-            this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series2";
-            this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(437, 301);
-            this.chart2.TabIndex = 11;
-            this.chart2.Text = "chart2";
+            chartArea5.Name = "ChartArea1";
+            this.firstLastnameLetterChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.firstLastnameLetterChart.Legends.Add(legend5);
+            this.firstLastnameLetterChart.Location = new System.Drawing.Point(12, 336);
+            this.firstLastnameLetterChart.Name = "firstLastnameLetterChart";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Legend = "Legend1";
+            series5.Name = "Series2";
+            this.firstLastnameLetterChart.Series.Add(series5);
+            this.firstLastnameLetterChart.Size = new System.Drawing.Size(437, 301);
+            this.firstLastnameLetterChart.TabIndex = 11;
+            this.firstLastnameLetterChart.Text = "chart2";
             // 
-            // chart3
+            // timeFilterChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(763, 12);
-            this.chart3.Name = "chart3";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series3";
-            this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(437, 301);
-            this.chart3.TabIndex = 12;
-            this.chart3.Text = "chart3";
+            chartArea6.Name = "ChartArea1";
+            this.timeFilterChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.timeFilterChart.Legends.Add(legend6);
+            this.timeFilterChart.Location = new System.Drawing.Point(763, 12);
+            this.timeFilterChart.Name = "timeFilterChart";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "Series3";
+            this.timeFilterChart.Series.Add(series6);
+            this.timeFilterChart.Size = new System.Drawing.Size(437, 301);
+            this.timeFilterChart.TabIndex = 12;
+            this.timeFilterChart.Text = "chart3";
             // 
-            // radioButton1
+            // timeOption1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(856, 353);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(58, 17);
-            this.radioButton1.TabIndex = 13;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "0 - 559";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.timeOption1.AutoSize = true;
+            this.timeOption1.Location = new System.Drawing.Point(856, 353);
+            this.timeOption1.Name = "timeOption1";
+            this.timeOption1.Size = new System.Drawing.Size(58, 17);
+            this.timeOption1.TabIndex = 13;
+            this.timeOption1.TabStop = true;
+            this.timeOption1.Text = "0 - 559";
+            this.timeOption1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // timeOption2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(856, 376);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(76, 17);
-            this.radioButton2.TabIndex = 14;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "600 - 1159";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.timeOption2.AutoSize = true;
+            this.timeOption2.Location = new System.Drawing.Point(856, 376);
+            this.timeOption2.Name = "timeOption2";
+            this.timeOption2.Size = new System.Drawing.Size(76, 17);
+            this.timeOption2.TabIndex = 14;
+            this.timeOption2.TabStop = true;
+            this.timeOption2.Text = "600 - 1159";
+            this.timeOption2.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // timeOption3
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(856, 399);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(82, 17);
-            this.radioButton3.TabIndex = 15;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "1200 - 1759";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.timeOption3.AutoSize = true;
+            this.timeOption3.Location = new System.Drawing.Point(856, 399);
+            this.timeOption3.Name = "timeOption3";
+            this.timeOption3.Size = new System.Drawing.Size(82, 17);
+            this.timeOption3.TabIndex = 15;
+            this.timeOption3.TabStop = true;
+            this.timeOption3.Text = "1200 - 1759";
+            this.timeOption3.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // timeOption4
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(856, 422);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(82, 17);
-            this.radioButton4.TabIndex = 16;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "1800 - 2359";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.timeOption4.AutoSize = true;
+            this.timeOption4.Location = new System.Drawing.Point(856, 422);
+            this.timeOption4.Name = "timeOption4";
+            this.timeOption4.Size = new System.Drawing.Size(82, 17);
+            this.timeOption4.TabIndex = 16;
+            this.timeOption4.TabStop = true;
+            this.timeOption4.Text = "1800 - 2359";
+            this.timeOption4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // filterTimeButton
             // 
-            this.button3.Location = new System.Drawing.Point(1025, 376);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Generate";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.filterTimeButton.Location = new System.Drawing.Point(1025, 376);
+            this.filterTimeButton.Name = "filterTimeButton";
+            this.filterTimeButton.Size = new System.Drawing.Size(75, 23);
+            this.filterTimeButton.TabIndex = 17;
+            this.filterTimeButton.Text = "Generate";
+            this.filterTimeButton.UseVisualStyleBackColor = true;
+            this.filterTimeButton.Click += new System.EventHandler(this.filterTimeButton_Click);
             // 
             // pictureBox1
             // 
@@ -271,32 +271,32 @@ namespace project_ares.ui
             this.ClientSize = new System.Drawing.Size(1212, 649);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.chart3);
-            this.Controls.Add(this.chart2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.filterTimeButton);
+            this.Controls.Add(this.timeOption4);
+            this.Controls.Add(this.timeOption3);
+            this.Controls.Add(this.timeOption2);
+            this.Controls.Add(this.timeOption1);
+            this.Controls.Add(this.timeFilterChart);
+            this.Controls.Add(this.firstLastnameLetterChart);
+            this.Controls.Add(this.filterLastnameButton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lastnameOption3CB);
+            this.Controls.Add(this.lastnameOption2CB);
+            this.Controls.Add(this.lastnameOption1CB);
+            this.Controls.Add(this.filterNameButton);
+            this.Controls.Add(this.nameOptionsComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.firstNameLetterChart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ChartWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chart\'s";
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstNameLetterChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstLastnameLetterChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeFilterChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,23 +305,23 @@ namespace project_ares.ui
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart firstNameLetterChart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox nameOptionsComboBox;
+        private System.Windows.Forms.Button filterNameButton;
+        private System.Windows.Forms.ComboBox lastnameOption1CB;
+        private System.Windows.Forms.ComboBox lastnameOption2CB;
+        private System.Windows.Forms.ComboBox lastnameOption3CB;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button filterLastnameButton;
+        private System.Windows.Forms.DataVisualization.Charting.Chart firstLastnameLetterChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart timeFilterChart;
+        private System.Windows.Forms.RadioButton timeOption1;
+        private System.Windows.Forms.RadioButton timeOption2;
+        private System.Windows.Forms.RadioButton timeOption3;
+        private System.Windows.Forms.RadioButton timeOption4;
+        private System.Windows.Forms.Button filterTimeButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
     }

@@ -33,10 +33,10 @@ namespace project_ares.ui
             for (int i = 65; i <= 90; i++)
             {
 
-                comboBox1.Items.Add((char)i);
-                comboBox2.Items.Add((char)i);
-                comboBox3.Items.Add((char)i);
-                comboBox4.Items.Add((char)i);
+                nameOptionsComboBox.Items.Add((char)i);
+                lastnameOption1CB.Items.Add((char)i);
+                lastnameOption2CB.Items.Add((char)i);
+                lastnameOption3CB.Items.Add((char)i);
 
             }
 
@@ -46,17 +46,17 @@ namespace project_ares.ui
 
         // Button 1 click method
 
-        private void button1_Click(object sender, EventArgs e)
+        private void filterNameButton_Click(object sender, EventArgs e)
         {
 
-            if (comboBox1.SelectedItem != null)
+            if (nameOptionsComboBox.SelectedItem != null)
             {
 
-                chart1.Series.Clear();
+                firstNameLetterChart.Series.Clear();
 
-                chart1.Titles.Clear();
+                firstNameLetterChart.Titles.Clear();
 
-                char l = (char)comboBox1.SelectedItem;
+                char l = (char)nameOptionsComboBox.SelectedItem;
 
                 int size = 0;
 
@@ -80,11 +80,11 @@ namespace project_ares.ui
                 string[] series = { l.ToString() };
                 int[] valores = { size };
 
-                chart1.Titles.Add("Lost people with the letter " + l);
+                firstNameLetterChart.Titles.Add("Lost people with the letter " + l);
 
                 for (int i = 0; i < series.Length; i++)
                 {
-                    Series serie = chart1.Series.Add(series[i]);
+                    Series serie = firstNameLetterChart.Series.Add(series[i]);
 
                     serie.Label = valores[i].ToString();
 
@@ -100,18 +100,18 @@ namespace project_ares.ui
 
         // ------------------------------------------------------------------------------
 
-        private void button2_Click(object sender, EventArgs e)
+        private void filterLastnameButton_Click(object sender, EventArgs e)
         {
 
-            if (comboBox2.SelectedItem != null || comboBox3.SelectedItem != null || comboBox4.SelectedItem != null)
+            if (lastnameOption1CB.SelectedItem != null || lastnameOption2CB.SelectedItem != null || lastnameOption3CB.SelectedItem != null)
             {
-                chart2.Series.Clear();
+                firstLastnameLetterChart.Series.Clear();
 
-                chart2.Titles.Clear();
+                firstLastnameLetterChart.Titles.Clear();
 
-                char l1 = (char)comboBox2.SelectedItem;
-                char l2 = (char)comboBox3.SelectedItem;
-                char l3 = (char)comboBox4.SelectedItem;
+                char l1 = (char)lastnameOption1CB.SelectedItem;
+                char l2 = (char)lastnameOption2CB.SelectedItem;
+                char l3 = (char)lastnameOption3CB.SelectedItem;
 
                 int sl1 = 0;
                 int sl2 = 0;
@@ -149,24 +149,24 @@ namespace project_ares.ui
                 string[] series = {l1.ToString(), l2.ToString(), l3.ToString()};
                 int[] valores = {sl1, sl2, sl3};
 
-                chart2.Titles.Add("Lost people with the letter's " + l1 + ", " + l2 + ", " + l3 + ",  in the firts chart of the last name");
+                firstLastnameLetterChart.Titles.Add("Lost people with the letter's " + l1 + ", " + l2 + ", " + l3 + ",  in the firts chart of the last name");
 
-                chart2.Series.Add("Series2");
+                firstLastnameLetterChart.Series.Add("Series2");
 
-                chart2.Series["Series2"].ChartType = SeriesChartType.Pie;
+                firstLastnameLetterChart.Series["Series2"].ChartType = SeriesChartType.Pie;
 
                 for (int i = 0; i < series.Length; i++)
                 {
-                    chart2.Series["Series2"].Points.AddXY(series[i], valores[i]);
+                    firstLastnameLetterChart.Series["Series2"].Points.AddXY(series[i], valores[i]);
                 }
 
                 int t = count - (sl1 + sl2 + sl3);
 
-                chart2.Series["Series2"].Points.AddXY("Others", t);
+                firstLastnameLetterChart.Series["Series2"].Points.AddXY("Others", t);
 
-                chart2.Series["Series2"].Label = "#VALY";
+                firstLastnameLetterChart.Series["Series2"].Label = "#VALY";
 
-                chart2.Series["Series2"].LegendText = "#VALX";
+                firstLastnameLetterChart.Series["Series2"].LegendText = "#VALX";
 
             } else
             {
@@ -179,13 +179,13 @@ namespace project_ares.ui
 
         // Button 3 click method
 
-        private void button3_Click(object sender, EventArgs e)
+        private void filterTimeButton_Click(object sender, EventArgs e)
         {
-            chart3.Series.Clear();
+            timeFilterChart.Series.Clear();
 
-            chart3.Titles.Clear();
+            timeFilterChart.Titles.Clear();
 
-            if (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked || radioButton4.Checked)
+            if (timeOption1.Checked || timeOption2.Checked || timeOption3.Checked || timeOption4.Checked)
             {
                 DataRowCollection rows = dataTable.Rows;
 
@@ -193,15 +193,15 @@ namespace project_ares.ui
 
                 int limitMin;
 
-                if (radioButton1.Checked)
+                if (timeOption1.Checked)
                 {
                     limitMin = 0;
                 }
-                else if (radioButton2.Checked)
+                else if (timeOption2.Checked)
                 {
                     limitMin = 600;
                 }
-                else if (radioButton3.Checked)
+                else if (timeOption3.Checked)
                 {
                     limitMin = 1200;
                 }
@@ -221,15 +221,15 @@ namespace project_ares.ui
 
                 }
 
-                chart3.Series.Add("Series3");
-                chart3.Series["Series3"].ChartType = SeriesChartType.Line;
+                timeFilterChart.Series.Add("Series3");
+                timeFilterChart.Series["Series3"].ChartType = SeriesChartType.Line;
 
                 for (int i = 0; i < counts.Length; i++)
                 {
-                    chart3.Series["Series3"].Points.AddXY(limitMin + i * 100, counts[i]);
+                    timeFilterChart.Series["Series3"].Points.AddXY(limitMin + i * 100, counts[i]);
                 }
 
-                chart3.Series["Series3"].Label = "#VALY";
+                timeFilterChart.Series["Series3"].Label = "#VALY";
 
             }
             else
