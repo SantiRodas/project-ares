@@ -49,11 +49,9 @@ namespace project_ares.ui
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // gMapControl1
@@ -89,7 +87,7 @@ namespace project_ares.ui
             // 
             // loadInformationButton
             // 
-            this.loadInformationButton.Location = new System.Drawing.Point(85, 207);
+            this.loadInformationButton.Location = new System.Drawing.Point(3, 226);
             this.loadInformationButton.Name = "loadInformationButton";
             this.loadInformationButton.Size = new System.Drawing.Size(121, 23);
             this.loadInformationButton.TabIndex = 1;
@@ -99,7 +97,7 @@ namespace project_ares.ui
             // 
             // filterDataConfirmButton
             // 
-            this.filterDataConfirmButton.Location = new System.Drawing.Point(51, 134);
+            this.filterDataConfirmButton.Location = new System.Drawing.Point(48, 177);
             this.filterDataConfirmButton.Name = "filterDataConfirmButton";
             this.filterDataConfirmButton.Size = new System.Drawing.Size(76, 23);
             this.filterDataConfirmButton.TabIndex = 2;
@@ -109,7 +107,7 @@ namespace project_ares.ui
             // 
             // generateChartsButton
             // 
-            this.generateChartsButton.Location = new System.Drawing.Point(85, 178);
+            this.generateChartsButton.Location = new System.Drawing.Point(153, 226);
             this.generateChartsButton.Name = "generateChartsButton";
             this.generateChartsButton.Size = new System.Drawing.Size(121, 23);
             this.generateChartsButton.TabIndex = 3;
@@ -120,7 +118,7 @@ namespace project_ares.ui
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(264, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(268, 69);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(162, 112);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -147,7 +145,7 @@ namespace project_ares.ui
             // 
             this.categoricComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoricComboBox.FormattingEnabled = true;
-            this.categoricComboBox.Location = new System.Drawing.Point(95, 45);
+            this.categoricComboBox.Location = new System.Drawing.Point(131, 48);
             this.categoricComboBox.Name = "categoricComboBox";
             this.categoricComboBox.Size = new System.Drawing.Size(121, 21);
             this.categoricComboBox.TabIndex = 11;
@@ -156,7 +154,7 @@ namespace project_ares.ui
             // 
             this.fieldsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fieldsComboBox.FormattingEnabled = true;
-            this.fieldsComboBox.Location = new System.Drawing.Point(95, 17);
+            this.fieldsComboBox.Location = new System.Drawing.Point(131, 20);
             this.fieldsComboBox.Name = "fieldsComboBox";
             this.fieldsComboBox.Size = new System.Drawing.Size(121, 21);
             this.fieldsComboBox.TabIndex = 14;
@@ -164,28 +162,28 @@ namespace project_ares.ui
             // 
             // stringTextBox
             // 
-            this.stringTextBox.Location = new System.Drawing.Point(95, 79);
+            this.stringTextBox.Location = new System.Drawing.Point(131, 78);
             this.stringTextBox.Name = "stringTextBox";
             this.stringTextBox.Size = new System.Drawing.Size(121, 20);
             this.stringTextBox.TabIndex = 15;
             // 
             // numberMinTextBox
             // 
-            this.numberMinTextBox.Location = new System.Drawing.Point(51, 108);
+            this.numberMinTextBox.Location = new System.Drawing.Point(65, 127);
             this.numberMinTextBox.Name = "numberMinTextBox";
             this.numberMinTextBox.Size = new System.Drawing.Size(76, 20);
             this.numberMinTextBox.TabIndex = 16;
             // 
             // numberMaxTextBox
             // 
-            this.numberMaxTextBox.Location = new System.Drawing.Point(162, 108);
+            this.numberMaxTextBox.Location = new System.Drawing.Point(176, 127);
             this.numberMaxTextBox.Name = "numberMaxTextBox";
             this.numberMaxTextBox.Size = new System.Drawing.Size(76, 20);
             this.numberMaxTextBox.TabIndex = 18;
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(162, 134);
+            this.resetButton.Location = new System.Drawing.Point(153, 177);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(76, 23);
             this.resetButton.TabIndex = 19;
@@ -201,7 +199,6 @@ namespace project_ares.ui
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.loadInformationButton);
             this.panel1.Controls.Add(this.generateChartsButton);
@@ -220,7 +217,7 @@ namespace project_ares.ui
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(133, 111);
+            this.label6.Location = new System.Drawing.Point(147, 130);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(23, 13);
             this.label6.TabIndex = 26;
@@ -229,7 +226,7 @@ namespace project_ares.ui
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 111);
+            this.label5.Location = new System.Drawing.Point(26, 130);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 25;
@@ -238,7 +235,7 @@ namespace project_ares.ui
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 82);
+            this.label3.Location = new System.Drawing.Point(29, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 23;
@@ -247,7 +244,7 @@ namespace project_ares.ui
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 48);
+            this.label2.Location = new System.Drawing.Point(46, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 22;
@@ -256,21 +253,11 @@ namespace project_ares.ui
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(34, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Filtering Criteria";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(264, 121);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(162, 128);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
             // 
             // MainWindow
             // 
@@ -288,7 +275,6 @@ namespace project_ares.ui
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,7 +296,6 @@ namespace project_ares.ui
         private System.Windows.Forms.TextBox numberMaxTextBox;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
