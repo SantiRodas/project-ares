@@ -130,23 +130,7 @@ namespace project_ares.ui
             LoadPolygons();
 
         }
-
-        // ------------------------------------------------------------------------------
-
-        // Load all the information of the GMap system.
-
-        private void gMapControl1_Load(object sender, EventArgs e)
-        {
-            gMapControl1.MapProvider = GoogleMapProvider.Instance;
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
-
-            gMapControl1.Position = new PointLatLng(30, 70);
-
-            gMapControl1.Overlays.Add(markers);
-            gMapControl1.Overlays.Add(polygons);
-            gMapControl1.ShowCenter = false;
-        }
-
+        
         // ------------------------------------------------------------------------------
 
         // Filter data
@@ -275,6 +259,22 @@ namespace project_ares.ui
             numberMaxTextBox.Enabled = false;
             numberMinTextBox.Enabled = false;
             stringTextBox.Enabled = false;
+        }
+
+        // ------------------------------------------------------------------------------
+
+        // Load all the information of the GMap system.
+
+        private void gMapControl1_Load(object sender, EventArgs e)
+        {
+            gMapControl1.MapProvider = GoogleMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+
+            gMapControl1.Position = new PointLatLng(30, 70);
+
+            gMapControl1.Overlays.Add(markers);
+            gMapControl1.Overlays.Add(polygons);
+            gMapControl1.ShowCenter = false;
         }
 
         // ------------------------------------------------------------------------------
