@@ -12,17 +12,15 @@ Functional program in C # that allows reading a file with information related to
 
 ## Stages of construction
 * Analysis
-
-* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Analisis.pdf
-* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Metodo%20de%20la%20ingenieria.pdf
+* [Requeriments](https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Analisis.pdf)
+* [Engineering method](https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Metodo%20de%20la%20ingenieria.pdf)
 
 * Design
-
-* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20clases.pdf
-* https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20objetos.pdf
+* [Diagram of class](https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20clases.pdf)
+* [Diagram of objects](https://github.com/JuanF2019/project-ares/blob/main/project-ares/docs/Diagrama%20de%20objetos.pdf)
 
 * Explanatory video
-* https://youtu.be/CBwMIeW_Yek
+* [YouTube](https://youtu.be/CBwMIeW_Yek)
 
 ## Tools used
 * Google Docs
@@ -36,7 +34,7 @@ Functional program in C # that allows reading a file with information related to
 * Santiago Rodas Rodriguez
 
 ## License
-* This project is under the license (GNU General Public License v3.0): https://github.com/JuanF2019/project-ares/blob/main/LICENSE
+* [GNU General Public License v3.0](https://github.com/JuanF2019/project-ares/blob/main/LICENSE)
 
 ## Windows
 
